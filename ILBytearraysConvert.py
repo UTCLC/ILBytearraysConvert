@@ -1,6 +1,7 @@
 import os
 import re
 import sys
+import codecs
 from binascii import unhexlify
 
 def il_escape(s):
@@ -59,7 +60,7 @@ def convert_il_file(input_path):
 		content
 	)
 	os.makedirs(os.path.dirname(input_path)+"/Repacked/",exist_ok=True)
-	with open(os.path.dirname(input_path)+"/Repacked/"+os.path.basename(input_path), 'w', encoding='utf-8-sig') as f:
+	with codecs.open(os.path.dirname(input_path)+"/Repacked/"+os.path.basename(input_path), 'w', encoding='utf-8-sig') as f:
 		f.write(new_content)
 
 file = input("File: ").replace("\\","/")
